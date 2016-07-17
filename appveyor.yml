@@ -1,66 +1,37 @@
 #-------------------------------------------------#
 #           GENERAL                               #
 #-------------------------------------------------#
-version: 1.1.0.{build}
-configuration: Release
+version: 2.0.0.{build}
 
 branches:
  only:
   - master
-  - develop
-  
-#-------------------------------------------------#
-#           ENVIRONMENT                           #
-#-------------------------------------------------#
-os: Visual Studio 2015
-environment:
- # this patch key will be repaced by the before_build event and it's script
- # only version-pattern here allowed.
- versionPatchKey: '0.0.0-ci-replace'
- dnvmVersion: '1.0.0-rc1-final'
- artifactsPath: 'artifacts\build'
- # string secured by individual appveyor account
- nugetKey:
-    secure: s1wmKGbLWJgtNFbeih5ARl8RYSopkcPhKzAuoViFK2QcpD+fDrb2W3NUBGBNP72Q
- 
-#-------------------------------------------------#
-#           INIT                                  #
-#-------------------------------------------------#
+
+configuration:
+- Debug
+- Release
+
+platform: Any CPU
 
 init:
- - git config --global core.autocrlf true
- 
-#-------------------------------------------------#
-#           INSTALL                               #
-#-------------------------------------------------#
-
-install:
- - cmd: nuget sources add -Name api.nuget.org -Source https://api.nuget.org/v3/index.json
-
-#-------------------------------------------------#
-#           BUILD CONFIGURATION                   #
-#-------------------------------------------------#
-
-# patch project.json files and install DNVM
-before_build:
- - ps: .\appveyor.prebuild.version.ps1
- - ps: .\appveyor.prebuild.patch-projectjson.ps1 "src\FlexMapper" "src\FlexMapper.UnitTests" -version $env:APPVEYOR_BUILD_VERSION -placeholder $env:versionPatchKey
- - ps: .\appveyor.install.dnvm.ps1
-
-
-# build main project with defined configuration
-build_script:
- - ps: .\appveyor.build.ps1 "src\FlexMapper" "src\FlexMapper.UnitTests" -configuration $env:CONFIGURATION
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
   
-#-------------------------------------------------#
-#           TEST CONFIGURATION                    #
-#-------------------------------------------------#
+before_build:
+- appveyor-retry dotnet restore -v Minimal
 
-# test with defined configuration
+build_script:
+- dotnet build "src\FlexMapper" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
+- dotnet build "src\FlexMapper.UnitTests" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
+
 test_script:
- - ps: Write-Host "TESTING configuration $env:configuration"
- - cmd: dnx -p src\FlexMapper.UnitTests test"
- 
-#-------------------------------------------------#
-#           DEPLOY CONFIGURATION                  #
-#-------------------------------------------------#
+- dotnet test "src\FlexMapper.UnitTests" -c %CONFIGURATION%
+
+# after_build:
+# - dotnet pack "src\FlexMapper" -c %CONFIGURATION% --no-build --version-suffix %LABEL% -o artifacts
+
+artifacts:
+- path: artifacts\**\*.*
+
+cache:
+- '%USERPROFILE%\.nuget\packages'
+
