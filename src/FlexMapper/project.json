@@ -1,0 +1,30 @@
+﻿{
+  "version": "2.0.0-ci-replace",
+
+  "description": "FlexMapper is the counterpart to AutoMapper. While AutoMapper uses primary a lot of Reflection stuff to map the values of two classes or object, FlexMapper focuses the pointedly manual mapping. AutoMapper is a great solution if you just want to map simple objects, like ViewModels or data-transfer objects. But if you're focussed on performance and want to use AutoMapper with contexts like databases or unmanaged connections, AutoMapper is complex to use and hard to test.",
+  "authors": [ "SCHWABENCODE", "BenjaminAbt" ],
+  "packOptions": {
+    "tags": [ "Mapping, FlexMapper, SchwabenCode, BenjaminAbt" ],
+    "projectUrl": "https://github.com/SchwabenCode/FlexMapper",
+    "licenseUrl": "https://github.com/SchwabenCode/FlexMapper/LICENSE.md",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/SchwabenCode/FlexMapper"
+    }
+  },
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    },
+    "net45": {},
+    "net451": {},
+    "net452": {},
+    "net46": {},
+    "net461": {}
+  }
+}
