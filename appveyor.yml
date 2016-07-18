@@ -11,7 +11,7 @@ platform: Any CPU
 
 init:
 - ps: $Env:LABEL = $Env:APPVEYOR_BUILD_NUMBER
-- ps: Write-Host "Build Label: $Env:LABEL"
+- ps: Write-Host "Build Label: %LABEL%"
   
 before_build:
 - appveyor-retry dotnet restore -v Minimal
