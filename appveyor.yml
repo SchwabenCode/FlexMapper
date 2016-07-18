@@ -1,7 +1,4 @@
-#-------------------------------------------------#
-#           GENERAL                               #
-#-------------------------------------------------#
-version: 2.0.0.{build}
+version: 2.0.{build}  # will not be used
 
 branches:
  only:
@@ -14,6 +11,7 @@ platform: Any CPU
 
 init:
 - ps: $Env:LABEL = $Env:APPVEYOR_BUILD_NUMBER
+- ps: Write-Host "Build Label: '$Env:LABEL'"
   
 before_build:
 - appveyor-retry dotnet restore -v Minimal
@@ -42,4 +40,5 @@ deploy:
   symbol_server:           # remove to push symbols to SymbolSource.org
   artifact: /.*\.nupkg/
   on:
-    branch: master
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
