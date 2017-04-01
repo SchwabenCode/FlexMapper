@@ -5,8 +5,10 @@
     <AssemblyName>SchwabenCode.FlexMapper</AssemblyName>
     <RootNamespace>SchwabenCode.FlexMapper</RootNamespace>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Description>FlexMapper is the counterpart to AutoMapper. While AutoMapper uses primary a lot of Reflection stuff to map the values of two classes or object, FlexMapper focuses the pointedly manual mapping. AutoMapper is a great solution if you just want to map simple objects, like ViewModels or data-transfer objects. But if you're focussed on performance and want to use AutoMapper with contexts like databases or unmanaged connections, AutoMapper is complex to use and hard to test.</Description>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Summary>FlexMapper is the counterpart to AutoMapper. While AutoMapper uses primary a lot of Reflection stuff to map the values of two classes or object, FlexMapper focuses the pointedly manual mapping. AutoMapper is a great solution if you just want to map simple objects, like ViewModels or data-transfer objects. But if you're focussed on performance and want to use AutoMapper with contexts like databases or unmanaged connections, AutoMapper is complex to use and hard to test.</Summary>
+    <Description>Manual mapping of objects</Description>
     <Authors>Benjamin Abt, SCHWABENCODE</Authors>
     <Company>Benjamin Abt, SCHWABENCODE</Company>
     <Copyright>Benjamin Abt 2017</Copyright>
