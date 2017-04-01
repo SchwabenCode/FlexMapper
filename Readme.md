@@ -6,7 +6,7 @@
 | **VERSIONING** | Build State | NuGet Stable |
 |---|---|---|
 | master | ![VSTSMaster](https://img.shields.io/vso/build/schwabencode/73f3ab2a-ad20-4e8b-a79a-a59464dac38d/1.png?style=flat-square) | ![NuGetStable](https://img.shields.io/nuget/v/FlexMapper.png?style=flat-square)  |
-| develop | - | ![NuGetPre](https://img.shields.io/nuget/vpre/FlexMapper.png?style=flat-square) |
+| develop | ![VSTSDevelop](https://img.shields.io/vso/build/schwabencode/73f3ab2a-ad20-4e8b-a79a-a59464dac38d/2.png?style=flat-square) | ![NuGetPre](https://img.shields.io/nuget/vpre/FlexMapper.png?style=flat-square) |
 
 ![NuGetDownloads](https://img.shields.io/nuget/dt/FlexMapper.png?style=flat-square) | ![GitHubRelease](https://img.shields.io/github/release/SchwabenCode/FlexMapper.png?style=flat-square) | ![GitHubRelease](https://img.shields.io/github/issues/SchwabenCode/FlexMapper.png?style=flat-square)
 
