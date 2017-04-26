@@ -95,7 +95,7 @@ See the unit test project for full code.
 
 ## Give Thanks
 
-If you like the library and saved you time, than maybe respect this with a small donation to the [animal shelter of Stuttgart](http://www.tierheim-stuttgart.de/).
+If you like the library and saved you time then maybe respect this with a small donation to the [animal shelter of Stuttgart](http://www.tierheim-stuttgart.de/).
 
 If you want to thank me personally, take a look at [my personal Amazon wishlist](http://www.amazon.de/gp/registry/wishlist/H6KLKT7UMI7Z/).
 
